@@ -1,6 +1,10 @@
 from flask import Flask, url_for, redirect
 app = Flask(__name__)
 
+@app.errorhandler(404)
+def not_found(err):
+    return "Нет такой страницы", 404
+
 @app.route("/")
 @app.route("/web")
 def web():
@@ -10,7 +14,10 @@ def web():
                <h1>web-сервер на flask</h1>
                <a href="/author">author</a>
            </body> 
-        </html>"""
+        </html>""",200, {
+            'X-server': 'sample',
+            'Content-Type': 'text/plan; charset=utf-8'
+        }
 
 @app.route("/author")
 def author():
@@ -72,8 +79,3 @@ def created():
 </html>
 ''', 201
 
-app = Flask(__name__)
-
-@app.errorhandler(404)
-def not_found(err):
-    return "Нет такой страницы", 404
