@@ -1,0 +1,17 @@
+body {
+    background-color:darkolivegreen;
+    color: grey
+    font-family: Arial, sans-serif;
+    text-align: center;
+    font-size: 32px;
+}
+
+img {
+    width: 900px; 
+    height: auto; 
+
+}
+
+h1 {
+    color:bisque
+}
