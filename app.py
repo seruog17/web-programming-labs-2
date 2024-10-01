@@ -6,6 +6,26 @@ def not_found(err):
     return "Нет такой страницы", 404
 
 @app.route("/")
+@app.route("/index")
+def index():
+    return '''
+<!doctype html>
+<html>
+    <head>
+        <title>НГТУ, ФБ, Лабораторные работы</title>
+    </head>
+    <body>
+        <h1>НГТУ, ФБ, WEB-программирование, часть 2. Список лабораторных</h1>
+        <ol>
+            <li><a href="/lab1">Первая лабораторная</a></li>
+        </ol>
+        <footer>
+            Посаженников Сергей Александровчи, ФБИ-22, 3 Курс, 2024 год
+        </footer>
+    </body>
+</html>
+'''
+@app.route("/")
 @app.route("/lab1/web")
 def web():
     return """<!doctype html> 
