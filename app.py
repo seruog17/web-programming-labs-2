@@ -234,3 +234,20 @@ def teapot():
     </body>
 </html>
 ''', 418
+
+@app.route("/lab1/null")
+def null():
+    result = 1 / 0
+    return str(result)
+
+@app.errorhandler(500)
+def internal_server_error(err):
+    return'''
+<!doctypehtml>
+<html>
+    <body>
+        <h1>Внутренняя ошибка сервера</h1>
+        <p>Мы уже работаем над её исправлением. Пожалуйста, попробуйте позже.</p>
+    </body>
+</html>
+'''
