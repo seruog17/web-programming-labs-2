@@ -141,3 +141,68 @@ def created():
 </html>
 ''', 201
 
+@app.route("/lab1/bad_request")
+def bad_request():
+    return'''
+<!doctype html>
+<html>
+    <body>
+        <h1>Неправильный, некорректный запрос</h1>
+    </body>
+</html>
+''', 400
+
+@app.route("/lab1/unauthorized")
+def unauthorized():
+    return'''
+<!doctype html>
+<html>
+    <body>
+        <h1>Авторизация не выполнена</h1>
+    </body>
+</html>
+''', 401
+
+@app.route("/lab1/payment_required")
+def payment_required():
+    return'''
+<!doctype html>
+<html>
+    <body>
+        <h1>Необходима оплата</h1>
+    </body>
+</html>
+''', 402
+
+@app.route("/lab1/forbidden")
+def forbidden():
+    return'''
+<!doctype html>
+<html>
+    <body>
+        <h1>Доступ запрещен</h1>
+    </body>
+</html>
+''', 403
+
+@app.route("/lab1/method_not_allowed")
+def method_not_allowed():
+    return'''
+<!doctype html>
+<html>
+    <body>
+        <h1>Метод не поддерживается</h1>
+    </body>
+</html>
+''', 405
+
+@app.route("/lab1/teapot")
+def teapot():
+    return'''
+<!doctype html>
+<html>
+    <body>
+        <h1>Сервер отказывается варить кофе, потому что это чайник ;)</h1>
+    </body>
+</html>
+''', 418
