@@ -268,7 +268,7 @@ def internal_server_error(err):
         <p>Мы уже работаем над её исправлением. Пожалуйста, попробуйте позже.</p>
     </body>
 </html>
-'''
+''', 500
 
 @app.route('/lab2/a')
 def a():
