@@ -289,6 +289,9 @@ def flowers(flower_id):
 
 @app.route('/lab2/add_flower/<name>')
 def add_flower(name):
+    if not name:
+        abort(400, description="Вы не задали имя цветка")
+    
     flower_list.append(name)
     return f'''
     <!doctype html>
