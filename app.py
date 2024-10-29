@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-from flask import Flask, url_for, redirect, make_response, render_template_string
-=======
-from flask import Flask, url_for, redirect, render_template
->>>>>>> c9bbf7fb4f90739349f159efefead8578fcbd684
+from flask import Flask, url_for, redirect, make_response, render_template_string, render_template
 app = Flask(__name__)
 
 @app.errorhandler(404)
@@ -272,74 +268,6 @@ def internal_server_error(err):
         <p>Мы уже работаем над её исправлением. Пожалуйста, попробуйте позже.</p>
     </body>
 </html>
-<<<<<<< HEAD
-'''
-@app.route("/custom-page")
-def custom():
-    content = '''
-<!doctype html>
-<html>
-<head>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: lightgray;
-            color: darkgray;
-            text-align: center;
-            padding: 50px;
-        }
-        .text {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        h1 {
-            color: green;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            text-align: justify;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="text">
-        <h1>Искусственный интеллект</h1>
-        <img src="/static/ии.png">
-        <p>
-            Искусственный интеллект — компьютерная программа, которая принимает и анализирует данные, 
-            а затем делает выводы на их основе. Это может быть отнесение фотографии к определенному классу, 
-            группировка текстов схожей тематики, предсказание курса валют, а также более сложные задачи. 
-            Например, написание других компьютерных программ, проектирование строений, анализ почвы и так далее.
-        </p>
-        <p>
-            Понятием часто спекулируют, особенно в сфере маркетинга. 
-            Могут написать компьютерный алгоритм и выдавать его за искусственный интеллект. 
-            Предположим, магазин решил давать скидку всем, кто приходит в оранжевом.
-        </p>
-    </div>
-</body>
-</html>
-'''
-    
-    response = make_response(render_template_string(content))
-    response.headers['Content-Language'] = 'ru'
-    response.headers['X-Custom-Header-1'] = 'first'
-    response.headers['X-Custom-Header-2'] = 'second'
-    
-    return response
-    
-=======
 ''', 500
 
 @app.route('/lab2/a')
@@ -403,7 +331,23 @@ def filters():
     pharse = "О <b>сколько</b> <u>нам</u> <i>открытий</i> чудных..."
     return render_template('filter.html', pharse=pharse)
 
+@app.route('/lab2/calc/')
+def calc_default():
+    # Перенаправляем на /lab2/calc/1/1
+    return redirect(url_for('calc', a=1, b=1))
 
+@app.route('/lab2/calc/<int:a>')
+def calc_with_one_param(a):
+    # Перенаправляем на /lab2/calc/a/1
+    return redirect(url_for('calc', a=a, b=1))
 
+@app.route('/lab2/calc/<int:a>/<int:b>')
+def calc(a, b):
+    sum_result = a + b
+    diff_result = a - b
+    prod_result = a * b
+    div_result = a / b if b != 0 else "Деление на ноль!"
+    pow_result = a ** b
 
->>>>>>> c9bbf7fb4f90739349f159efefead8578fcbd684
+    return render_template('calc.html', a=a, b=b, sum_result=sum_result, diff_result=diff_result, 
+                           prod_result=prod_result, div_result=div_result, pow_result=pow_result)
