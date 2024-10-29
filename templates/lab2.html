@@ -1,19 +1,18 @@
 {% extends "base.html" %}
 
-{# номер лабораторной работы: #}
-{% block lab %}Лабораторная работа 2{% endblock %}
+{% block lab %}Лабораторная 2{% endblock %}
 
-{# основной контент #}
 {% block main %}
-    <h1>Шаблоны</h1>
-    <div>Тема лабораторной - шаблоны. Список доделанных страниц:</div>
-    <ol>
-        <li>
-            <a href="/lab2/example">example</a>
-        </li>
-
-        <li>
-            <a href="/lab2/filters">filters</a>
-        </li>
-    </ol>
+<h1>Лабораторная 2</h1>
+<ul>
+    <li><a href="/lab2/a">Без слэша</a></li>
+    <li><a href="/lab2/a/">Со слэшем</a></li>
+    <li><a href="/lab2/flowers/0">Цветы</a></li>
+    <li><a href="/lab2/add_flower/роза">Добавить цветок</a></li>
+    <li><a href="/lab2/example">Пример</a></li>
+    <li><a href="/lab2/filters">Фильтры</a></li>
+    <li><a href="/lab2/calc/1/1">Калькулятор</a></li>
+    <li><a href="/lab2/books">Список книг</a></li>
+    <li><a href="/lab2/rolex">Список часов Rolex</a></li>
+</ul>
 {% endblock %}
