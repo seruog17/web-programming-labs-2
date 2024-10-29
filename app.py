@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from flask import Flask, url_for, redirect, make_response, render_template_string
+=======
+from flask import Flask, url_for, redirect, render_template
+>>>>>>> c9bbf7fb4f90739349f159efefead8578fcbd684
 app = Flask(__name__)
 
 @app.errorhandler(404)
@@ -268,6 +272,7 @@ def internal_server_error(err):
         <p>Мы уже работаем над её исправлением. Пожалуйста, попробуйте позже.</p>
     </body>
 </html>
+<<<<<<< HEAD
 '''
 @app.route("/custom-page")
 def custom():
@@ -334,3 +339,71 @@ def custom():
     
     return response
     
+=======
+''', 500
+
+@app.route('/lab2/a')
+def a():
+    return 'без слэша'
+
+@app.route('/lab2/a/')
+def a2():
+    return 'со слэшем'
+
+flower_list = ['роза', 'тюльпан', 'незабудка', 'ромашка']
+
+@app.route('/lab2/flowers/<int:flower_id>')
+def flowers(flower_id):
+    if flower_id >= len(flower_list):
+        return "такого цветка нет", 404
+    else:
+        return "цветок: " + flower_list[flower_id]
+
+@app.route('/lab2/add_flower/<name>')
+def add_flower(name):
+    if not name:
+        abort(400, description="Вы не задали имя цветка")
+    
+    flower_list.append(name)
+    return f'''
+    <!doctype html>
+<html>
+    <body>
+    <h1>Добавлен новый цветок</h1>
+    <p>Название нового цветка: {name} </p>
+    <p>Всего цветов: {len(flower_list)}</p>
+    <p>Полный список: {flower_list}</p>
+    </body>
+</html>
+'''
+
+@app.route('/lab2/example')
+def example():
+    name = 'Сергей Посаженников'
+    lab_number = '2'
+    group = 'ФБИ-22'
+    course = '3 курс'
+    fruits = [
+        {'name': 'яблоки', 'price': 100},
+        {'name': 'груши', 'price': 120},
+        {'name': 'апельсины', 'price': 80},
+        {'name': 'мандарины', 'price': 95} ,
+        {'name': 'манго', 'price': 321}
+        ]
+    return render_template('example.html', 
+                           name=name, lab_number=lab_number, group=group,
+                             course=course, fruits=fruits)
+
+@app.route('/lab2/')
+def lab2():
+    return render_template('lab2.html')
+
+@app.route('/lab2/filters')
+def filters():
+    pharse = "О <b>сколько</b> <u>нам</u> <i>открытий</i> чудных..."
+    return render_template('filter.html', pharse=pharse)
+
+
+
+
+>>>>>>> c9bbf7fb4f90739349f159efefead8578fcbd684

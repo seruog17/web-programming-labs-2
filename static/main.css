@@ -1,0 +1,37 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: lightskyblue;
+    color: brown;
+    margin: 0;
+}
+
+header {
+    background-color: steelblue;
+    color: black;
+    padding: 20px;
+    margin-bottom: 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-size: 20px;
+}
+
+main {
+    padding: 100px;
+    margin-bottom: 60px;
+    font-size: 20px;
+    line-height: 2;
+}
+
+footer {
+    background-color: steelblue;
+    color: black;
+    padding: 20px;
+    margin-top: 20px;
+    position: fixed;
+    text-align: right;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 20px;
+}
