@@ -2,29 +2,29 @@ from flask import Blueprint, url_for, redirect
 lab2 = Blueprint('lab2', __name__)
 
 
-@app.route('/lab2/a')
+@lab2.route('/lab2/a')
 def a():
     return 'без слэша'
 
-@app.route('/lab2/a/')
+@lab2.route('/lab2/a/')
 def a2():
     return 'со слэшем'
 
 flower_list = ['роза', 'тюльпан', 'незабудка', 'ромашка']
 
-@app.route('/lab2/flowers/<int:flower_id>')
+@lab2.route('/lab2/flowers/<int:flower_id>')
 def flowers(flower_id):
     if flower_id >= len(flower_list):
         return "такого цветка нет", 404
     else:
         return "цветок: " + flower_list[flower_id]
 
-@app.route('/lab2/add_flower/<name>')
+@lab2.route('/lab2/add_flower/<name>')
 def add_flower(name):
     if not name:
         abort(400, description="Вы не задали имя цветка")
     
-    flower_list.append(name)
+    flower_list.lab2end(name)
     return f'''
     <!doctype html>
 <html>
@@ -37,7 +37,7 @@ def add_flower(name):
 </html>
 '''
 
-@app.route('/lab2/example')
+@lab2.route('/lab2/example')
 def example():
     name = 'Сергей Посаженников'
     lab_number = '2'
@@ -54,26 +54,26 @@ def example():
                            name=name, lab_number=lab_number, group=group,
                              course=course, fruits=fruits)
 
-@app.route('/lab2/')
-def lab2():
+@lab2.route('/lab2/')
+def lab23():
     return render_template('lab2.html')
 
-@app.route('/lab2/filters')
+@lab2.route('/lab2/filters')
 def filters():
     pharse = "О <b>сколько</b> <u>нам</u> <i>открытий</i> чудных..."
     return render_template('filter.html', pharse=pharse)
 
-@app.route('/lab2/calc/')
+@lab2.route('/lab2/calc/')
 def calc_default():
     # Перенаправляем на /lab2/calc/1/1
     return redirect(url_for('calc', a=1, b=1))
 
-@app.route('/lab2/calc/<int:a>')
+@lab2.route('/lab2/calc/<int:a>')
 def calc_with_one_param(a):
     # Перенаправляем на /lab2/calc/a/1
     return redirect(url_for('calc', a=a, b=1))
 
-@app.route('/lab2/calc/<int:a>/<int:b>')
+@lab2.route('/lab2/calc/<int:a>/<int:b>')
 def calc(a, b):
     sum_result = a + b
     diff_result = a - b
@@ -98,7 +98,7 @@ books = [
     {"author": "Михаил Булгаков", "title": "Мастер и Маргарита", "genre": "Фантастика", "pages": 480}
 ]
 
-@app.route('/lab2/books')
+@lab2.route('/lab2/books')
 def books_list():
     return render_template('books.html', books=books)
 
@@ -130,6 +130,6 @@ rolex_watches = [
     }
 ]
 
-@app.route('/lab2/rolex')
+@lab2.route('/lab2/rolex')
 def rolex_list():
     return render_template('rolex.html', watches=rolex_watches)
