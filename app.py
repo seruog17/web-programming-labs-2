@@ -351,3 +351,21 @@ def calc(a, b):
 
     return render_template('calc.html', a=a, b=b, sum_result=sum_result, diff_result=diff_result, 
                            prod_result=prod_result, div_result=div_result, pow_result=pow_result)
+
+
+books = [
+    {"author": "Дж. Р. Р. Толкин", "title": "Хоббит", "genre": "Фэнтези", "pages": 310},
+    {"author": "Агата Кристи", "title": "И никого не стало", "genre": "Детектив", "pages": 272},
+    {"author": "Дж. К. Роулинг", "title": "Гарри Поттер и философский камень", "genre": "Фэнтези", "pages": 309},
+    {"author": "Антуан де Сент-Экзюпери", "title": "Маленький принц", "genre": "Философская сказка", "pages": 96},
+    {"author": "Дж. Р. Р. Толкин", "title": "Властелин колец", "genre": "Фэнтези", "pages": 1178},
+    {"author": "Чарльз Диккенс", "title": "Повесть о двух городах", "genre": "Исторический роман", "pages": 341},
+    {"author": "Мигель де Сервантес", "title": "Дон Кихот", "genre": "Роман", "pages": 1056},
+    {"author": "Мао Цзэдун", "title": "Цитаты председателя Мао Цзэдуна", "genre": "Политическая литература", "pages": 448},
+    {"author": "Роберт Грин", "title": "48 законов власти", "genre": "Саморазвитие", "pages": 496},
+    {"author": "Михаил Булгаков", "title": "Мастер и Маргарита", "genre": "Фантастика", "pages": 480}
+]
+
+@app.route('/lab2/books')
+def books_list():
+    return render_template('books.html', books=books)
