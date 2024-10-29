@@ -369,3 +369,35 @@ books = [
 @app.route('/lab2/books')
 def books_list():
     return render_template('books.html', books=books)
+
+rolex_watches = [
+    {
+        "name": "Rolex Submariner",
+        "description": "Классические водонепроницаемые часы с хронометром.",
+        "image": "rol1.jpg"
+    },
+    {
+        "name": "Rolex Day-Date",
+        "description": "Элегантные часы с датой и днем недели.",
+        "image": "rol2.jpg"
+    },
+    {
+        "name": "Rolex GMT-Master II",
+        "description": "Часы с двумя часовыми поясами для путешественников.",
+        "image": "rol3.png"
+    },
+    {
+        "name": "Rolex Datejust",
+        "description": "Классические часы с датой и хронометром.",
+        "image": "rol4.jpg"
+    },
+    {
+        "name": "Rolex Sky-Dweller",
+        "description": "Часы с сложным механизмом для путешественников.",
+        "image": "rol5.jpg"
+    }
+]
+
+@app.route('/lab2/rolex')
+def rolex_list():
+    return render_template('rolex.html', watches=rolex_watches)

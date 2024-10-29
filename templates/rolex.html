@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Список часов Rolex</title>
+    </head>
+    <body>
+        <h1>Список часов Rolex</h1>
+        <table border="1">
+            <tr>
+                <th>Картинка</th>
+                <th>Название</th>
+                <th>Описание</th>
+            </tr>
+            {% for watch in watches %}
+            <tr>
+                <td><img src="{{ url_for('static', filename=watch.image) }}" alt="{{ watch.name }}" width="200"></td>
+                <td>{{ watch.name }}</td>
+                <td>{{ watch.description }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
