@@ -1,4 +1,4 @@
-from flask import Blueprint, url_for, redirect
+from flask import Blueprint, url_for, redirect, render_template
 lab2 = Blueprint('lab2', __name__)
 
 
@@ -24,7 +24,7 @@ def add_flower(name):
     if not name:
         abort(400, description="Вы не задали имя цветка")
     
-    flower_list.lab2end(name)
+    flower_list.append(name)
     return f'''
     <!doctype html>
 <html>
