@@ -35,3 +35,10 @@ footer {
     right: 0;
     font-size: 20px;
 }
+
+
+.error {
+    color: red;
+    font-weight: 800;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
