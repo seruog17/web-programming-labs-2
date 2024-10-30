@@ -11,19 +11,23 @@ app.register_blueprint(lab3)
 @app.route("/")
 @app.route("/index")
 def index():
+    style = url_for("static", filename="main.css")
     return '''
 <!doctype html>
 <html>
     <head>
         <title>НГТУ, ФБ, Лабораторные работы</title>
+        <link rel="stylesheet" href="''' + style + '''">
     </head>
     <body>
-        <h1>НГТУ, ФБ, WEB-программирование, часть 2. Список лабораторных</h1>
-        <ol>
-            <li><a href="/lab1">Первая лабораторная</a></li>
-            <li><a href="/lab2">Вторая лабораторная</a></li>
-            <li><a href="/lab3">Третья лабораторная</a><li>
-        </ol>
+        <header>НГТУ, ФБ, WEB-программирование, часть 2. Список лабораторных</header>
+        <div class="content">
+            <ol>
+                <li><a href="/lab1">Первая лабораторная</a></li>
+                <li><a href="/lab2">Вторая лабораторная</a></li>
+                <li><a href="/lab3">Третья лабораторная</a></li>
+            </ol>
+        </div>
         <footer>
             Посаженников Сергей Александровчи, ФБИ-22, 3 Курс, 2024 год
         </footer>

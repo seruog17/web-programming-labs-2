@@ -65,13 +65,11 @@ def filters():
 
 @lab2.route('/lab2/calc/')
 def calc_default():
-    # Перенаправляем на /lab2/calc/1/1
-    return redirect(url_for('calc', a=1, b=1))
+    return redirect(url_for('lab2.calc', a=1, b=1))
 
 @lab2.route('/lab2/calc/<int:a>')
 def calc_with_one_param(a):
-    # Перенаправляем на /lab2/calc/a/1
-    return redirect(url_for('calc', a=a, b=1))
+    return redirect(url_for('lab2.calc', a=a, b=1))
 
 @lab2.route('/lab2/calc/<int:a>/<int:b>')
 def calc(a, b):
