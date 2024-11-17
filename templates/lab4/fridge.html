@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 4{% endblock %}
+
+{% block main %}
+    <h1>Холодильник</h1>
+    <form method="post">
+        <div>
+            <label for="temperature">Установите температуру:</label>
+            <input type="number" id="temperature" name="temperature" step="0.1">
+        </div>
+        <div>
+            <button type="submit">Установить</button>
+        </div>
+    </form>
+    {% if error %}
+        <div style="color: red;">{{ error }}</div>
+    {% endif %}
+    {% if message %}
+        <div style="color: blue;">{{ message }}</div>
+        <div>{{ snowflakes }}</div>
+    {% endif %}
+{% endblock %}
