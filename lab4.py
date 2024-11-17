@@ -94,7 +94,7 @@ def pow():
 tree_count = 0
 
 
-@lab4.route('/lab4/tree', methods = ['GET', 'POST'])
+@lab4.route('/lab4/tree', methods=['GET', 'POST'])
 def tree():
     global tree_count
     if request.method == 'GET':
@@ -102,9 +102,12 @@ def tree():
     
     operation = request.form.get('operation')
 
-
     if operation == 'cut':
-        tree_count -= 1
+        if tree_count > 0:
+            tree_count -= 1
+        else:
+            return render_template('lab4/tree.html', tree_count=tree_count, error='Нельзя срубить больше деревьев, чем есть!')
+        
     elif operation == 'plant':
         tree_count += 1
 
