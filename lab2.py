@@ -50,18 +50,18 @@ def example():
         {'name': 'мандарины', 'price': 95} ,
         {'name': 'манго', 'price': 321}
         ]
-    return render_template('example.html', 
+    return render_template('lab2/example.html', 
                            name=name, lab_number=lab_number, group=group,
                              course=course, fruits=fruits)
 
 @lab2.route('/lab2/')
 def lab23():
-    return render_template('lab2.html')
+    return render_template('lab2/lab2.html')
 
 @lab2.route('/lab2/filters')
 def filters():
     pharse = "О <b>сколько</b> <u>нам</u> <i>открытий</i> чудных..."
-    return render_template('filter.html', pharse=pharse)
+    return render_template('lab2/filter.html', pharse=pharse)
 
 @lab2.route('/lab2/calc/')
 def calc_default():
@@ -79,7 +79,7 @@ def calc(a, b):
     div_result = a / b if b != 0 else "Деление на ноль!"
     pow_result = a ** b
 
-    return render_template('calc.html', a=a, b=b, sum_result=sum_result, diff_result=diff_result, 
+    return render_template('lab2/calc.html', a=a, b=b, sum_result=sum_result, diff_result=diff_result, 
                            prod_result=prod_result, div_result=div_result, pow_result=pow_result)
 
 
@@ -98,36 +98,36 @@ books = [
 
 @lab2.route('/lab2/books')
 def books_list():
-    return render_template('books.html', books=books)
+    return render_template('lab2/books.html', books=books)
 
 rolex_watches = [
     {
         "name": "Rolex Submariner",
         "description": "Классические водонепроницаемые часы с хронометром.",
-        "image": "rol1.jpg"
+        "image": "lab2/rol1.jpg"
     },
     {
         "name": "Rolex Day-Date",
         "description": "Элегантные часы с датой и днем недели.",
-        "image": "rol2.jpg"
+        "image": "lab2/rol2.jpg"
     },
     {
         "name": "Rolex GMT-Master II",
         "description": "Часы с двумя часовыми поясами для путешественников.",
-        "image": "rol3.png"
+        "image": "lab2/rol3.png"
     },
     {
         "name": "Rolex Datejust",
         "description": "Классические часы с датой и хронометром.",
-        "image": "rol4.jpg"
+        "image": "lab2/rol4.jpg"
     },
     {
         "name": "Rolex Sky-Dweller",
         "description": "Часы с сложным механизмом для путешественников.",
-        "image": "rol5.jpg"
+        "image": "lab2/rol5.jpg"
     }
 ]
 
 @lab2.route('/lab2/rolex')
 def rolex_list():
-    return render_template('rolex.html', watches=rolex_watches)
+    return render_template('lab2/rolex.html', watches=rolex_watches)
