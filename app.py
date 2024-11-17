@@ -8,7 +8,6 @@ app.register_blueprint(lab1)
 app.register_blueprint(lab2)
 app.register_blueprint(lab3)
 
-@app.route("/")
 @app.route("/index")
 def index():
     style = url_for("static", filename="main.css")
