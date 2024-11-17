@@ -41,7 +41,6 @@ def lab():
 '''
 
 
-@lab1.route("/")
 @lab1.route("/lab1/web")
 def web():
     return """<!doctype html> 

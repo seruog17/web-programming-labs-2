@@ -39,3 +39,6 @@ def index():
 </html>
 '''
 
+@app.route("/")
+def root():
+    return redirect("/index")
