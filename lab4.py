@@ -194,3 +194,54 @@ def fridge():
         snowflakes = '❄️'
 
     return render_template('lab4/fridge.html', message=message, snowflakes=snowflakes)
+
+
+@lab4.route('/lab4/grain', methods=['GET', 'POST'])
+def grain():
+    if request.method == 'GET':
+        return render_template('lab4/grain.html')
+
+    grain_type = request.form.get('grain_type')
+    weight = request.form.get('weight')
+
+    if not weight:
+        error = 'Ошибка: не указан вес'
+        return render_template('lab4/grain.html', error=error)
+
+    try:
+        weight = float(weight)
+    except ValueError:
+        error = 'Ошибка: вес должен быть числом'
+        return render_template('lab4/grain.html', error=error)
+
+    if weight <= 0:
+        error = 'Ошибка: вес должен быть больше 0'
+        return render_template('lab4/grain.html', error=error)
+
+    if weight > 500:
+        error = 'Ошибка: такого объёма сейчас нет в наличии'
+        return render_template('lab4/grain.html', error=error)
+
+    prices = {
+        'ячмень': 12345,
+        'овёс': 8522,
+        'пшеница': 8722,
+        'рожь': 14111
+    }
+
+    if grain_type not in prices:
+        error = 'Ошибка: неверный тип зерна'
+        return render_template('lab4/grain.html', error=error)
+
+    price_per_ton = prices[grain_type]
+    total_price = weight * price_per_ton
+
+    if weight > 50:
+        discount = total_price * 0.1
+        total_price -= discount
+        discount_message = f'Применена скидка за большой объём: {discount} руб'
+    else:
+        discount_message = ''
+
+    message = f'Заказ успешно сформирован. Вы заказали {grain_type}. Вес: {weight} т. Сумма к оплате: {total_price} руб'
+    return render_template('lab4/grain.html', message=message, discount_message=discount_message)
