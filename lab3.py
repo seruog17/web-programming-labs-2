@@ -106,3 +106,46 @@ def settings():
                            background_color=background_color,
                            font_size=font_size,
                            font_weight=font_weight)
+
+
+@lab3.route('/lab3/ticket')
+def ticket_form():
+    return render_template('lab3/ticket_form.html')
+
+
+@lab3.route('/lab3/ticket_submit', methods=['POST'])
+def ticket_submit():
+    fio = request.form.get('fio')
+    shelf = request.form.get('shelf')
+    bedding = 'да' if request.form.get('bedding') else 'нет'
+    baggage = 'да' if request.form.get('baggage') else 'нет'
+    age = int(request.form.get('age'))
+    departure = request.form.get('departure')
+    destination = request.form.get('destination')
+    date = request.form.get('date')
+    insurance = 'да' if request.form.get('insurance') else 'нет'
+
+    if not fio or not shelf or not age or not departure or not destination or not date:
+        return "Все поля должны быть заполнены", 400
+
+    if age < 1 or age > 120:
+        return "Возраст должен быть от 1 до 120 лет", 400
+
+    base_price = 700 if age < 18 else 1000
+    if shelf in ['нижняя', 'нижняя боковая']:
+        base_price += 100
+    if bedding == 'да':
+        base_price += 75
+    if baggage == 'да':
+        base_price += 250
+    if insurance == 'да':
+        base_price += 150
+
+    return render_template('lab3/ticket.html', fio=fio, 
+                           shelf=shelf, bedding=bedding, 
+                           baggage=baggage, age=age, 
+                           departure=departure, 
+                           destination=destination,
+                           date=date, 
+                           insurance=insurance, 
+                           price=base_price)
