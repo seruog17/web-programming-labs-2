@@ -52,3 +52,36 @@ footer {
     font-size: 1.2em;
     font-family: Arial, sans-serif;
 }
+
+
+.lab_menu{
+    background-color: rgb(41, 105, 161);
+    display: flex;
+    flex-direction: row;
+    padding: 30px 0;
+    justify-content: center;
+}
+.menu1{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.menu_name{
+    align-self: center;
+    padding-left: 170px;
+    color: white;
+    text-align: right;
+    cursor: pointer;
+    font-size: 14pt;
+}
+.base{
+    font-size: 30pt;
+}
+.m{
+    background-color: lightblue;
+    padding: 15px 30px;
+}
+.lab_menu a{
+    text-decoration: none;
+    color: black;
+}
