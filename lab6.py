@@ -93,7 +93,7 @@ def api():
                 'message': 'Invalid params: Office not found'
             },
             'id': id
-        })
+        }
 
     return jsonify({
         'jsonrpc': '2.0',
