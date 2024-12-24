@@ -5,9 +5,26 @@
 {% block main %}
     <h1>Статьи</h1>
 
-    {% for article in articles %}
-        <h2>{{ article['title'] }}</h2>
-        <blockquote>{{ article['article_text'] }}</blockquote>
-    {% endfor %}
+    {% if error %}
+        <div style="color: red; font-weight: bold;">{{ error }}</div>
+    {% endif %}
 
+    {% if no_articles_message %}
+        <p style="color: gray; font-style: italic;">{{ no_articles_message }}</p>
+    {% else %}
+
+        {% if articles %}
+            {% for article in articles %}
+                <div style="margin-bottom: 20px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+                    <h2>{{ article['title'] }}</h2>
+                    <blockquote style="font-style: italic; color: #555;">{{ article['article_text'] }}</blockquote>
+                    <div>
+                        <a href="/lab5/edit/{{ article['id'] }}" style="color: blue; text-decoration: underline; margin-right: 10px;">Редактировать</a>
+                        <a href="/lab5/delete/{{ article['id'] }}" style="color: red; text-decoration: underline;">Удалить</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    {% endif %}
 {% endblock %}

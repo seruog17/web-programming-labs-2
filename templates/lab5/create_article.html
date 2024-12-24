@@ -5,6 +5,10 @@
 {% block main %}
     <h1>Создание статьи</h1>
 
+    {% if error %}
+        <div style="color: red; font-weight: bold;">{{ error }}</div>
+    {% endif %}
+
     <form method="post">
         <div>
             <label>
@@ -20,7 +24,7 @@
         </div>
 
         <div>
-        <button type="submit">Готово</button>
+            <button type="submit">Готово</button>
         </div>
     </form>
 {% endblock %}
