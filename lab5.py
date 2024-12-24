@@ -123,7 +123,7 @@ def create():
     cur.execute("SELECT * FROM users WHERE login=%s;", (login, ))
     login_id = cur.fetchone()["id"]
 
-    cur.execute("INSERT INTO articles (user_id, tittle, article_text) VALUES (%s, %s, %s);",
+    cur.execute("INSERT INTO articles (user_id, title, article_text) VALUES (%s, %s, %s);",
         (login_id, title, article_text)
     )
     
