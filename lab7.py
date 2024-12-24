@@ -109,4 +109,13 @@ def put_film(id):
         return jsonify({"error": "Film not found"}), 404
     film = request.get_json()
     films[id] = film
-    return jsonify(films[id])
+    return films[id]
+
+
+
+@lab7.route('/lab7/rest-api/films/', methods=['POST'])
+def add_films():
+    new_film = request.get_json()
+    films.append(new_film)
+    new_film_index = len(films) - 1
+    return {"index": new_film_index}, 201
