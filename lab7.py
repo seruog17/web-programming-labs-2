@@ -9,7 +9,7 @@ def main():
 
 films = [
     {
-        "titile": "Fight Club",
+        "title": "Fight Club",
         "title_ru": "Бойцовский клуб",
         "year": "1999",
         "description": "Сотрудник страховой компании страдает \
@@ -27,7 +27,7 @@ films = [
         который начинает пользоваться невероятной популярностью."
     },
     {
-        "titile": "The Green Mile",
+        "title": "The Green Mile",
         "title_ru": "Зеленая миля",
         "year": "1999",
         "description": "Пол Эджкомб — начальник блока смертников \
@@ -40,7 +40,7 @@ films = [
          одним из самых необычных обитателей блока." 
     },
     {
-        "titile": "The Gentlemen",
+        "title": "The Gentlemen",
         "title_ru": "Джентльмены",
         "year": "2019",
         "description": "Один ушлый американец ещё со студенческих \
@@ -55,7 +55,7 @@ films = [
         китайской диаспоры, чернокожих спортсменов и даже русского олигарха."
     },
     {
-        "titile": "Pulp Fiction",
+        "title": "Pulp Fiction",
         "title_ru": "Криминальное чтиво",
         "year": "1994",
         "description": "Двое бандитов Винсент Вега и Джулс Винфилд \
@@ -68,7 +68,7 @@ films = [
         Джулс по нелепой случайности попадают в неприятности."
     },
     {
-        "titile": "The Godfather",
+        "title": "The Godfather",
         "title_ru": "Крестный отец",
         "year": "1972",
         "description": "Глава семьи, Дон Вито Корлеоне, \
