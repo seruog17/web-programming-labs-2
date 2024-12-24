@@ -37,8 +37,8 @@ footer {
 }
 
 .content {
-    padding-top: 80px; /* Отступ сверху для заголовка */
-    padding-bottom: 80px; /* Отступ снизу для подвала */
+    padding-top: 80px;
+    padding-bottom: 80px; 
 }
 
 .error {
