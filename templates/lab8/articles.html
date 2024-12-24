@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 8{% endblock %}
+
+{% block main %}
+    <h1>Список статей</h1>
+
+    {% if error %}
+        <div style="color: red; font-weight: bold;">{{ error }}</div>
+    {% endif %}
+
+    {% if no_articles_message %}
+        <p style="color: gray; font-style: italic;">{{ no_articles_message }}</p>
+    {% else %}
+
+        {% if articles %}
+            {% for article in articles %}
+                <div style="margin-bottom: 20px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+                    <h2>{{ article.title }}</h2>
+                    <blockquote style="font-style: italic; color: #555;">{{ article.articles_text }}</blockquote>
+                    <div>
+                        <a href="/lab8/edit/{{ article.id }}" style="color: blue; text-decoration: underline; margin-right: 10px; font-family: inherit; font-size: inherit;">Редактировать</a>
+                        
+                        <form action="/lab8/delete/{{ article.id }}" method="POST" style="display:inline;">
+                            <button type="submit" style="color: red; text-decoration: underline; background: none; border: none; cursor: pointer; font-family: inherit; font-size: inherit;" onclick="return confirm('Вы уверены, что хотите удалить статью?')">Удалить</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    {% endif %}
+{% endblock %}

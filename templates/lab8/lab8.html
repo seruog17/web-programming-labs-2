@@ -3,29 +3,29 @@
 {% block lab %}Лабораторная работа 8{% endblock %}
 
 {% block main %}
-<h1 class="base">База знаний</h1>
-<div>
-    <div class="lab_menu">
-        <div class="menu1">
-            <div class="m">
-                <a href="/lab8/list">Список статей</a>
+    <h1>База знаний</h1>
+    <div>
+        <div class="lab_menu">
+            <div class="menu1">
+                <div class="m">
+                    <a href="/lab8/articles">Список статей</a>
+                </div>
+                <div class="m">
+                    <a href="/lab8/create">Создать статью</a>
+                </div>
+                <div class="m">
+                    <a href="/lab8/login">Войти</a>
+                </div>
+                <div class="m">
+                    <a href="/lab8/register">Регистрация</a>
+                </div>
+                <div class="m">
+                    <a href="/lab8/logout">Выйти</a>
+                </div>
             </div>
-
-            <div class="m">
-                <a href="/lab8/create">Создать статью</a>
+            <div class="menu_name">
+                {{ login if login else 'Anonymous' }}
             </div>
-
-            <div class="m">
-                <a href="/lab8/login">Войти</a>
-            </div>
-
-            <div class="m">
-                <a href="/lab8/register">Регистрация</a>
-            </div>
-        </div>
-        <div class="menu_name">
-            {{ login if login else 'Anonymous' }}
         </div>
     </div>
-</div>
 {% endblock %}
