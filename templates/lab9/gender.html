@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 9{% endblock %}
+
+{% block body_class %}lab9-container{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1>Введите ваш пол</h1>
+        <form action="{{ url_for('lab9.preference') }}" method="POST">
+            <label for="gender">Ваш пол:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Мужчина</option>
+                <option value="female">Женщина</option>
+            </select>
+            <button type="submit">Далее</button>
+        </form>
+    </div>
+{% endblock %}

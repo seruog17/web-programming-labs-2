@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 9{% endblock %}
+
+{% block body_class %}lab9-container{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1>Поздравляю тебя, {{ name }}!</h1>
+        <p>
+            {% if age|int > 18 %}
+                {% if gender == 'male' %}
+                    Желаю тебе крепкого здоровья, успехов в работе, счастья и благополучия!
+                {% else %}
+                    Желаю тебе крепкого здоровья, успехов в работе, счастья и благополучия!
+                {% endif %}
+            {% else %}
+                {% if gender == 'male' %}
+                    Желаю, чтобы ты быстро вырос, был умным, сильным и счастливым!
+                {% else %}
+                    Желаю, чтобы ты быстро выросла, была умной, красивой и счастливой!
+                {% endif %}
+            {% endif %}
+        </p>
+        <p>Вот тебе подарок — {{ gift }}.</p>
+        <img src="{{ url_for('static', filename='images/' + image) }}" alt="Подарок">
+    </div>
+{% endblock %}
