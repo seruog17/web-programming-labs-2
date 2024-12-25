@@ -8,27 +8,27 @@
 
     .office-list {
         display: flex;
-        flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
-        gap: 20px; /* Расстояние между элементами */
-        justify-content: center; /* Выравнивание по центру */
+        flex-wrap: wrap; 
+        gap: 20px; 
+        justify-content: center;
     }
 
     .office-card {
         background-color: #fff;
-        border: 2px solid #ddd; /* Прямоугольник вокруг карточки */
+        border: 2px solid #ddd;
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.2s ease-in-out;
-        width: 300px; /* Фиксированная ширина карточки */
+        width: 300px; 
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
 
     .office-card:hover {
-        transform: translateY(-5px); /* Убираем анимацию подъема */
-        border-color: #28a745; /* Убираем изменение цвета границы */
+        transform: translateY(-5px);
+        border-color: #28a745;
     }
 
     .office-card h2 {
@@ -167,7 +167,7 @@ function booking(officeNumber) {
                     alert('Офис уже арендован');
                     break;
                 case -32601:
-                    alert('Сьранная ошибка');
+                    alert('Странная ошибка');
                     break;
             }
         } else {
